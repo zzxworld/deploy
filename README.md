@@ -1,2 +1,6 @@
 # deploy
-my deploy scripts
+My deploy scripts.
+
+OS Platform:
+
+* CentOS 7
