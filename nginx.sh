@@ -11,9 +11,11 @@ IFS='.' read -a FILE_NAMES <<< "${FILE_NAME}"
 FOLDER_NAME=`(IFS=.; echo "${FILE_NAMES[*]:0:3}")`
 
 function do_init() {
+    sudo yum install pcre-devel openssl-devel -y
+
     if [[ ! -d ${OPT_PATH} ]]; then
         sudo mkdir ${OPT_PATH}
-        sudo chown ${CURRENT_USER}:{$CURRENT_GROUP} /opt/nginx
+        sudo chown ${CURRENT_USER}:${CURRENT_GROUP} ${OPT_PATH}
     fi
 
     if [[ ! -d /var/log/nginx ]]; then
