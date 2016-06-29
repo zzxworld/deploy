@@ -9,15 +9,15 @@ function do_init() {
 
 function do_install() {
     if [[ ! -d ~/.rbenv ]]; then
-        git clone git://github.com/sstephenson/rbenv.git --depth=1 .rbenv
+        git clone git://github.com/sstephenson/rbenv.git .rbenv
     fi
 
     if [[ ! -d ~/.rbenv/plugins/ruby-build ]]; then
-        git clone git://github.com/sstephenson/ruby-build.git --depth=1 ~/.rbenv/plugins/ruby-build
+        git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
     fi
 
     if [[ ! -d ~/.rbenv/plugins/ruby-china-mirror ]]; then
-        git clone https://github.com/andorchen/rbenv-china-mirror.git --depth=1 ~/.rbenv/plugins/rbenv-china-mirror
+        git clone https://github.com/andorchen/rbenv-china-mirror.git ~/.rbenv/plugins/rbenv-china-mirror
     fi
 
     if [[ ! -f ~/.gemrc ]]; then
