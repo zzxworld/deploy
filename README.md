@@ -10,10 +10,10 @@
 
 ### rbenv
 ```
-curl https://git.io/vobMw | bash
+curl -sSL https://git.io/vobMw | bash
 ```
 
-使用 _Ruby China_ 镜像:
+使用镜像 (_Ruby China_):
 ```
-curl https://git.io/vobMw | bash -s https://gems.ruby-china.org
+curl -sSL https://git.io/vobMw | bash -s https://gems.ruby-china.org
 ```
