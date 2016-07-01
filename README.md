@@ -8,12 +8,12 @@
 
 ## 使用:
 
-### rbenv
+### install rbenv
 ```
-curl -sSL https://git.io/vobMw | bash
+curl -sSL https://raw.githubusercontent.com/zzxworld/deploy/master/rbenv.sh | bash
 ```
 
 使用镜像 (_Ruby China_):
 ```
-curl -sSL https://git.io/vobMw | bash -s https://gems.ruby-china.org
+curl -sSL https://raw.githubusercontent.com/zzxworld/deploy/master/rbenv.sh | bash -s https://gems.ruby-china.org
 ```
