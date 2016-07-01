@@ -131,6 +131,7 @@ function do_config() {
     echo "config"
 }
 
+do_init
 do_install
 
 echo 'deploy successful!'
