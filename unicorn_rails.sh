@@ -91,8 +91,8 @@ server {
     listen 80;
     server_name localhost;
 
-    root $APP_ROOT/public;
-    try_files \$uri/index.html \$uri @app;
+    root $APP_PATH/public;
+    try_files \$uri \$uri/index.html @app;
 
     error_page 500 502 503 504 /500.html;
     keepalive_timeout 10;
@@ -127,9 +127,8 @@ function do_install() {
     generate_rbenv_vars
 }
 
-function do_config() {
-    echo "config"
-}
+# function do_config() {
+# }
 
 do_init
 do_install
