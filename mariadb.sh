@@ -25,7 +25,7 @@ function display_password() {
     echo -e "\e[33mWaring: \e[0mDon't forget that the password for \e[1mroot\e[21m: \033[31m$PASSWORD\e[0m"
 }
 
-function config_root_password() {
+function config_password() {
     if is_have_password; then
         echo -e "\e[33mWaring: password does have for root.\e[0m"
     else
@@ -53,7 +53,7 @@ function do_config() {
         return
     fi
 
-    config_root_password
+    config_password
 }
 
 do_install
