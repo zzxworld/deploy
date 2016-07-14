@@ -46,6 +46,8 @@ function config_utf8_charset() {
     fi
 
     if ! cat /etc/my.cnf|grep -q '# set utf8 charset on default'; then
+        sudo cp /etc/my.cnf /etc/my.cnf.bak
+
         sudo sed -i "/\[mysqld_safe\]/i \\
 # set utf8 charset on default\\
 init_connect='SET collation_connection = utf8_unicode_ci'\\
