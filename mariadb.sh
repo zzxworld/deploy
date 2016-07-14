@@ -39,6 +39,24 @@ function config_password() {
     fi
 }
 
+function config_utf8_charset() {
+    if [[ ! -f /etc/my.cnf ]]; then
+        echo -e "\e[33mWaring: does't found the my.cnf in /etc/ \e[0m"
+        return
+    fi
+
+    if ! cat /etc/my.cnf|grep -q '# set utf8 charset on default'; then
+        sudo sed -i "/\[mysqld_safe\]/i \\
+# set utf8 charset on default\\
+init_connect='SET collation_connection = utf8_unicode_ci'\\
+init_connect='SET NAMES utf8'\\
+character-set-server=utf8\\
+collation-server=utf8_unicode_ci\\
+skip-character-set-client-handshake\\
+        " /etc/my.cnf
+    fi
+}
+
 function do_install() {
     if ! is_installed; then
         sudo yum install mariadb-server mariadb-devel -y
@@ -54,6 +72,7 @@ function do_config() {
     fi
 
     config_password
+    config_utf8_charset
 }
 
 do_install
