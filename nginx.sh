@@ -11,7 +11,7 @@ IFS='.' read -a FILE_NAMES <<< "${FILE_NAME}"
 FOLDER_NAME=`(IFS=.; echo "${FILE_NAMES[*]:0:3}")`
 
 function do_init() {
-    sudo yum install pcre-devel openssl-devel -y
+    sudo yum install gcc pcre-devel openssl-devel -y
 
     if [[ ! -d ${OPT_PATH} ]]; then
         sudo mkdir ${OPT_PATH}
