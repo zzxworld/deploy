@@ -53,7 +53,7 @@ function install_bundle() {
 }
 
 function do_init() {
-    sudo yum install git gcc openssl-devel readline-devel zlib-devel gdbm-devel sqlite-devel -y
+    sudo yum install git gcc bzip2 openssl-devel readline-devel zlib-devel gdbm-devel sqlite-devel -y
 }
 
 function do_install() {
