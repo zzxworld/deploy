@@ -83,7 +83,7 @@ function compile() {
 }
 
 function do_init() {
-    yum_install autoconf libicu libicu-devel libxml2-devel libcurl-devel libjpeg-turbo-devel libpng-devel libmcrypt-devel
+    yum_install gcc-c++ autoconf libicu libicu-devel libxml2-devel libcurl-devel libjpeg-turbo-devel libpng-devel libmcrypt-devel
 }
 
 function do_install() {
