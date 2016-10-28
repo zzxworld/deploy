@@ -2,6 +2,10 @@
 
 PASSWORD=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 8 | head -n 1)
 
+if [[ ! -z "$1" ]]; then
+    PASSWORD=$1
+fi
+
 function is_installed() {
     if rpm -ql mariadb-server|grep -q 'not installed'; then
         return 1
