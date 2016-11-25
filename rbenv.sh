@@ -53,7 +53,14 @@ function install_bundle() {
 }
 
 function do_init() {
-    sudo yum install git gcc bzip2 openssl-devel readline-devel zlib-devel gdbm-devel sqlite-devel -y
+    if [[ -f '/etc/debian_version' ]]; then
+        sudo aptitude install -y build-essential git libreadline-dev zlib1g-dev libsqlite3-dev
+    elif [[ -f '/etc/redhat-release' ]]; then
+        sudo yum install -y git gcc bzip2 openssl-devel readline-devel zlib-devel gdbm-devel sqlite-devel
+    else
+        echo 'Unsupported for current system.'
+        exit 0
+    fi
 }
 
 function do_install() {
@@ -92,7 +99,7 @@ function do_config() {
         echo '# rbenv support end' >> ~/.bash_profile
     fi
 
-    source ~/.bash_profile
+    exec $SHELL -l
 }
 
 
