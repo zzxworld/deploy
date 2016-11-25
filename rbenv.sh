@@ -65,11 +65,11 @@ function do_init() {
 
 function do_install() {
     if [[ ! -d ~/.rbenv ]]; then
-        git clone git://github.com/sstephenson/rbenv.git --depth=1 ~/.rbenv
+        git clone https://github.com/rbenv/rbenv.git --depth=1 ~/.rbenv
     fi
 
     if [[ ! -d ~/.rbenv/plugins/ruby-build ]]; then
-        git clone git://github.com/sstephenson/ruby-build.git --depth=1 ~/.rbenv/plugins/ruby-build
+        git clone https://github.com/rbenv/ruby-build.git --depth=1 ~/.rbenv/plugins/ruby-build
     fi
 
     install_plugin_china_mirror
