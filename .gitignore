@@ -1,0 +1,10 @@
+/sources/*
+
+/*.py
+
+!.git-keep
+!fabfile.py
+!fabfile-vagrant.py
+
+.DS_Store
+*.pyc
