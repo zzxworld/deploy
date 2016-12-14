@@ -1,52 +1,18 @@
 # deploy
 
-常用的开发工具部署脚本。
+基于 [fabric](https://github.com/fabric/fabric/) 的服务器部署框架。
 
-## 测试平台:
+## 依赖:
 
-* CentOS 7
+* 服务器系统 __Debian 8__
+* 本地系统有 Python 环境，并安装了 __fabric__
 
-## 使用:
+## 使用
 
-1. clone 项目到本地。
-2. 给相应的脚本执行权限，然后直接执行。也可使用下面两种方式:
+1. 基于默认 `fabfile.py` 文件的使用：
 
-   * `cat [name].sh|bash`: 可以省去添加执行权限的操作。
-   * `curl -sSL [url].sh|bash`: 可以省去 clone 项目和执行权限的操作。
+		fab -H 127.0.0.1 --port=2222 -u vagrant -p vagrant system_update
 
-## 脚本介绍
+2. (__推荐__) 自定义配置文件，如: `fabfile-vagrant.py`:
 
-### mariadb.sh
-
-MySQL 数据库的替代方案。安装时会自动生成一个随机的 root 用户密码，并在安装完毕后显示这个随机密码。
-
-### rbenv.sh
-
-基于 rbenv 的 Ruby 运行环境。默认安装 Ruby 版本 *2.3.1*，并启用了 rbenv-vars 插件。
-
-#### 使用镜像
-
-如果在国内安装，需要添加镜像地址，如使用 ruby-china 的镜像:
-
-    rbenv.sh https://gems.ruby-china.org
-
-如果是使用 `cat` 或 `curl` 的方式，使用镜像地址时，需要添加 `-s` 参数:
-
-    cat rbenv.sh | bash -s https://gems.ruby-china.org
-
-### unicorn_rails.sh [beta!]
-
-创建 Rails 项目的默认部署环境。
-
-> 此脚本必须在 rails 项目主目录运行。默认生成的配置文件只是保证项目能在部署机器上正常运行，并不是最佳实践。
-
-脚本创建了以下文件:
-
-* `bin/unicorn`: 控制 unicorn 启动和停止。
-* `config/unicorn.rb`: unicorn 配置文件。
-* `config/nginx.conf`: nginx 配置。
-* `.rbenv-vars`: 项目环境变量。（创建 RAILS_ENV 和 SECRET_KEY_BASE 环境变量)
-
-#### TODO:
-
-* 使用 puma 部署 rails 5
+		fab -f fabfile-vagrant.py system_update
