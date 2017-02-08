@@ -131,6 +131,14 @@ def php_config():
         sed(ini_file, before=';date.timezone =',
                 after="date.timezone = Asia/Shanghai",
                 use_sudo=True, backup='')
+        sed(ini_file, before=';opcache.enable=0',
+                after="opcache.enable=1",
+                use_sudo=True, backup='')
+        sed(ini_file, before=';opcache.enable_cli=0',
+                after="opcache.enable_cli=1",
+                use_sudo=True, backup='')
+        _sudo("sed -i '/\[opcache\]/a\zend_extension=opcache.so' "
+                "{}".format(ini_file))
 
     service_file = '/lib/systemd/system/php-fpm.service'
     if not file_exists(service_file):
