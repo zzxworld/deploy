@@ -6,6 +6,7 @@ from tasks.mysql import *
 from tasks.redis import *
 from tasks.ruby import *
 from tasks.php import *
+from tasks.nodejs import *
 
 env.hosts = ['127.0.0.1']
 env.port = 2222

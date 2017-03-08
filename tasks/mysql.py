@@ -21,7 +21,7 @@ def mysql_install():
 
         _sudo("debconf-set-selections <<< 'mysql-server mysql-server/root_password password {}'".format(password))
         _sudo("debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password {}'".format(password))
-        _sudo('aptitude install -y mariadb-server libmariadb-dev')
+        _sudo('aptitude install -y mariadb-server libmariadb-client-lgpl-dev')
 
 def mysql_config():
     if file_exists('/etc/mysql/conf.d/mariadb.cnf'):
